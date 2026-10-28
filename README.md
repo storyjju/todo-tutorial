@@ -7,6 +7,19 @@
 - 강의 본문: https://docs.claude-hunt.com
 - 수강생 결과물 공유: https://claude-hunt.com
 
+## 프로젝트 소개
+
+브라우저에서 동작하는 간단한 할일(Todo) 관리 앱입니다. 별도의 백엔드 없이 할일 목록을 브라우저 `localStorage` 에 저장하므로, 새로고침해도 데이터가 유지됩니다.
+
+주요 기능:
+
+- 할일 추가 · 완료 토글 · 인라인 편집 · 삭제 (빈 내용으로 편집하면 삭제)
+- 우선순위(높음 / 보통 / 낮음)와 마감일 지정
+- 카테고리 태그(업무 / 개인 / 쇼핑)와 카테고리별 필터
+- 상태 필터(전체 / 진행중 / 완료)와 텍스트 검색
+- 정렬(생성일순 / 이름순 / 마감일순)
+- `d` 키로 다크 모드 전환
+
 ## 기술 스택
 
 - Next.js 16 (App Router, Turbopack)
@@ -16,25 +29,45 @@
 - TypeScript / ESLint / Prettier
 - 패키지 매니저: bun 1.3.6
 
-## 시작하기
+## 실행 방법
+
+### 사전 요구사항
+
+- [bun](https://bun.sh) 1.3 이상
+- Node.js 20.9 이상 (Next.js 16 요구사항)
+
+### 설치 및 개발 서버 실행
 
 ```bash
+git clone https://github.com/storyjju/todo-tutorial.git
+cd todo-tutorial
 bun install
 bun dev
 ```
 
 개발 서버는 기본적으로 [http://localhost:3000](http://localhost:3000) 에서 열립니다.
 
-자주 쓰는 스크립트:
+### 프로덕션 빌드
 
 ```bash
-bun dev            # 개발 서버 실행
-bun run build      # 프로덕션 빌드
-bun run start      # 빌드 결과 실행
-bun run lint       # ESLint
-bun run typecheck  # tsc --noEmit
-bun run format     # Prettier 포맷팅
+bun run build
+bun run start
 ```
+
+### 자주 쓰는 스크립트
+
+```bash
+bun dev             # 개발 서버 실행 (Turbopack)
+bun run build       # 프로덕션 빌드
+bun run start       # 빌드 결과 실행
+bun run test        # Vitest 테스트 1회 실행
+bun run test:watch  # Vitest 감시 모드
+bun run lint        # ESLint
+bun run typecheck   # tsc --noEmit
+bun run format      # Prettier 포맷팅
+```
+
+> `bun test` 는 bun 내장 테스트 러너를 실행하므로, Vitest 를 쓰려면 반드시 `bun run test` 를 사용하세요.
 
 ## 챕터별 시작 브랜치
 
